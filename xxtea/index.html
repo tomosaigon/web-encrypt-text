@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>tomosaigon.github.io web-encrypt-text demo</title>
+        <meta charset="UTF-8">
+        <script src="xxtea.js" type="text/javascript"></script>
+        <script type="text/javascript">
+			function encrypt() {
+				let ptext = document.getElementById('plaintext').value
+				let key = document.getElementById('key').value
+				let ctext = XXTEA.encryptToBase64(ptext, key)
+				document.getElementById('ciphertext').value = ctext
+			}
+
+			function decrypt() {
+				let ctext = document.getElementById('ciphertext').value
+				let key = document.getElementById('key').value
+				let ptext = XXTEA.decryptFromBase64(ctext, key)
+				document.getElementById('plaintext').value = ptext
+			}
+        </script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    </head>
+
+    <body>
+		<div class="container">
+         <div class="jumbotron">
+	        <h1>Simple encryption / decryption </h1>
+			    <p class="lead">Quickly and simply encrypt some text in the browser using open source. Feel free to inspect the code to see how it works, including the xxtea encryption algorithm.</p>
+				<p>Type in a password/passphrase, then paste in the text you want to encrypt. Then press the Encrypt button and copy the ciphertext. To decrypt, leave the plaintext field empty, enter the ciphertext with the same original password, and click Decrypt.</p>
+		</div></div>
+		<div class="container">
+		 <form>
+			<div class="form-group">
+				<label class="sr-onlyXXX" for="plaintext">Password:</label>
+				<input type="text" class="form-control" id="key" placeholder="Passphrase">
+			</div><div class="form-group">
+				<label for="plaintext">Text to encrypt:</label>
+				<input type="text" class="form-control" id="plaintext" placeholder="Text to encrypt goes here">
+			</div><div class="form-group">
+				<label for="plaintext">Encrypted text:</label>
+				<input type="text" class="form-control" id="ciphertext">
+			</div><div class="form-group">
+				<button type="button" class="btn btn-primary" id="btnencrypt" onClick="encrypt()">Encrypt</button>
+				<button type="button" class="btn btn-secondary" id="btndecrypt" onClick="decrypt()">Decrypt</button>
+			</div>
+		</form></div>
+    </body>
+</html>
