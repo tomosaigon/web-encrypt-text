@@ -8,3 +8,14 @@ The code is just a tiny bit of HTML/CSS (using Bootstrap) with a few lines of Ja
 ## 1st Demo: XXTEA
 
 git: [Encrypt with XXTEA](xxtea)
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159869403-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-159869403-1');
+</script>
+
