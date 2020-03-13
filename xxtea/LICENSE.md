@@ -1,3 +1,5 @@
+This is the license for xxtea.js.
+
 The MIT License (MIT)
 
 Copyright (c) 2008-2016 Ma Bingyao <mabingyao@gmail.com>
