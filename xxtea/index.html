@@ -48,10 +48,10 @@
 				<input type="text" class="form-control" id="key" placeholder="Passphrase">
 			</div><div class="form-group">
 				<label for="plaintext">Text to encrypt:</label>
-				<input type="text" class="form-control" id="plaintext" placeholder="Text to encrypt goes here">
+				<textarea rows="10" class="form-control" id="plaintext" placeholder="Text to encrypt goes here"></textarea>
 			</div><div class="form-group">
 				<label for="plaintext">Encrypted text:</label>
-				<input type="text" class="form-control" id="ciphertext">
+				<textarea class="form-control" id="ciphertext"></textarea>
 			</div><div class="form-group">
 				<button type="button" class="btn btn-primary" id="btnencrypt" onClick="encrypt()">Encrypt</button>
 				<button type="button" class="btn btn-secondary" id="btndecrypt" onClick="decrypt()">Decrypt</button>
