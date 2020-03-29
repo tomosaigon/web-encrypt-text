@@ -167,17 +167,22 @@ body { font-family: 'Baloo 2', cursive; }
                     <div class="col-md-9 col-lg-8 mx-auto">
                       <div class="jumbotron">
                         <h1>XXX-TEA Party</h1>
+                        <h2>Open Source Encryption for Humans</h2>
                         <p><img width="100%" src="../XXTEA-cipher-algorithm-diagram-cc-AloisMahdal.png"></p>
-                        <p><a class="btn" data-toggle="collapse" data-target="#jumbodetails">View details &raquo;</a></p>
+                        <p><a class="btn" data-toggle="collapse" data-target="#jumbodetails">Expand details &raquo;</a></p>
                         <div id="jumbodetails" class="collapse-group collapse">
-                            <h2>Simple encryption / decryption </h1>
-                            <p class="lead">Quickly and simply encrypt some text in the browser using open source. Feel free to inspect the code to see how it works, including the XXTEA encryption algorithm.</p>
-                            <p>Type in a password/passphrase, then paste in the text you want to encrypt. Then press the Encrypt button and copy the ciphertext. To decrypt, leave the plaintext field empty, enter the ciphertext with the same original password, and click Decrypt.</p>
-                            <p>(NOTES: This uses Corrected Block TEA (often referred to as <a href="https://en.wikipedia.org/wiki/XXTEA">XXTEA</a>), a simple to code cipher which is unencumbered by patents and can run on low power devices like Raspi. This entire website can be downloaded and run locally.)
+                            <h2>Simple browser encryption &amp; decryption </h1>
+                            <p class="lead">Quickly and simply encrypt some text in the browser using 100% open source. Don't trust me? Inspect the code to see how it works, including the XXTEA encryption algorithm.</p>
+                            <p>Type in a password/passphrase, then paste in the text you want to encrypt. Then press the Encrypt button and copy the ciphertext. To decrypt, leave the plaintext field empty, enter the ciphertext with the same original password, and click Decrypt. This is not public key crypto. You keep and use the same password to encrypt and to decrypt.</p>
+                            <p>(NOTES: This uses Corrected Block TEA (often referred to as <a href="https://en.wikipedia.org/wiki/XXTEA">XXTEA</a>), a simple to code cipher which is unencumbered by patents and can run on low power devices like Raspi. This entire website can be downloaded and run locally. Save this page to your Android home screen.)
                             <p><a href="https://github.com/tomosaigon/web-encrypt-text/tree/master/xxtea">View source</a></p>
                         </div>
                       </div>
-                      <h3 class="party-heading mb-4">Welcome to the party!</h3>
+                      <h3 class="party-heading mb-4">Welcome to the TEA party!</h3>
+                      <ol>
+                        <li>Choose a password to use to both encrypt and decrypt.</li>
+                        <li>Paste text to encrypt then click ENCRYPT, or paste encrypted text and DECRYPT.</li>
+                      </ol>
                       <form>
                         <div class="form-label-group">
                             <label for="key">Password</label>
@@ -191,8 +196,7 @@ body { font-family: 'Baloo 2', cursive; }
                         </div><div class="form-label-group">
                             <textarea class="form-control" id="ciphertext" placeholder="Encrypted text here"></textarea>
                         </div>
-                        <div class="text-center">
-                          <a class="small" href="#">Forgot something?</a></div>
+                        <!-- div class="text-center"><a class="small" href="#">Forgot something?</a></div -->
                       </form>
                     </div>
                   </div>
