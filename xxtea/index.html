@@ -19,8 +19,134 @@
 				document.getElementById('plaintext').value = ptext
 			}
         </script>
+        <script
+              src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                crossorigin="anonymous"></script>
+        <script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"/>
+        <style>
+body { font-family: 'Baloo 2', cursive; } 
+.jumbotron {
+    background-color: #b1b1b1;
+    color: white;
+}
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: 0.75rem;
+}
+
+.image {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url('unsplash-1554936970-e49a373f6967.jpeg') /*url('https://source.unsplash.com/n56WptG3O9M/600x1200')*/;
+  background-size: cover;
+  background-position: center;
+}
+
+.party-heading {
+  font-weight: 300;
+}
+
+.btn-block {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group>input,
+.form-label-group>label {
+  padding: var(--input-padding-y) var(--input-padding-x);
+  height: auto;
+  border-radius: 2rem;
+}
+
+.form-label-group>label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  /* Override default `<label>` margin */
+  line-height: 1.5;
+  color: #495057;
+  cursor: text;
+  /* Match the input under the label */
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::placeholder {
+  color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-bottom: calc(var(--input-padding-y) / 3);
+}
+
+.form-label-group input:not(:placeholder-shown)~label {
+  padding-top: calc(var(--input-padding-y) / 3);
+  padding-bottom: calc(var(--input-padding-y) / 3);
+  font-size: 12px;
+  color: #777;
+}
+
+/* Fallback for Edge
+-------------------------------------------------- */
+
+@supports (-ms-ime-align: auto) {
+  .form-label-group>label {
+    display: none;
+  }
+  .form-label-group input::-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+  .form-label-group>label {
+    display: none;
+  }
+  .form-label-group input:-ms-input-placeholder {
+    color: #777;
+  }
+}
+        </style>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159869403-1"></script>
+        <link href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" rel="stylesheet">
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
@@ -28,34 +154,52 @@
 
 			gtag('config', 'UA-159869403-1');
 		</script>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
     </head>
 
     <body>
-		<div class="container">
-         <div class="jumbotron">
-	        <h1>Simple encryption / decryption </h1>
-                <p><img src="../XXTEA-cipher-algorithm-diagram-cc-AloisMahdal.png"></p>
-			    <p class="lead">Quickly and simply encrypt some text in the browser using open source. Feel free to inspect the code to see how it works, including the xxtea encryption algorithm.</p>
-				<p>Type in a password/passphrase, then paste in the text you want to encrypt. Then press the Encrypt button and copy the ciphertext. To decrypt, leave the plaintext field empty, enter the ciphertext with the same original password, and click Decrypt.</p>
-                <p>(NOTES: This uses Corrected Block TEA (often referred to as <a href="https://en.wikipedia.org/wiki/XXTEA">XXTEA</a>), a simple to code cipher which is unencumbered by patents and can run on low power devices like Raspi. This entire website can be downloaded and run locally.)
-				<p><a href="https://github.com/tomosaigon/web-encrypt-text/tree/master/xxtea">View source</a></p>
-		</div></div>
-		<div class="container">
-		 <form>
-			<div class="form-group">
-				<label class="sr-onlyXXX" for="plaintext">Password:</label>
-				<input type="text" class="form-control" id="key" placeholder="Passphrase">
-			</div><div class="form-group">
-				<label for="plaintext">Text to encrypt:</label>
-				<textarea rows="10" class="form-control" id="plaintext" placeholder="Text to encrypt goes here"></textarea>
-			</div><div class="form-group">
-				<label for="plaintext">Encrypted text:</label>
-				<textarea class="form-control" id="ciphertext"></textarea>
-			</div><div class="form-group">
-				<button type="button" class="btn btn-primary" id="btnencrypt" onClick="encrypt()">Encrypt</button>
-				<button type="button" class="btn btn-secondary" id="btndecrypt" onClick="decrypt()">Decrypt</button>
-			</div>
-		</form></div>
+        <div class="container-fluid">
+          <div class="row no-gutter">
+            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+            <div class="col-md-8 col-lg-6">
+              <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-9 col-lg-8 mx-auto">
+                      <div class="jumbotron">
+                        <h1>XXX-TEA Party</h1>
+                        <p><img width="100%" src="../XXTEA-cipher-algorithm-diagram-cc-AloisMahdal.png"></p>
+                        <p><a class="btn" data-toggle="collapse" data-target="#jumbodetails">View details &raquo;</a></p>
+                        <div id="jumbodetails" class="collapse-group collapse">
+                            <h2>Simple encryption / decryption </h1>
+                            <p class="lead">Quickly and simply encrypt some text in the browser using open source. Feel free to inspect the code to see how it works, including the XXTEA encryption algorithm.</p>
+                            <p>Type in a password/passphrase, then paste in the text you want to encrypt. Then press the Encrypt button and copy the ciphertext. To decrypt, leave the plaintext field empty, enter the ciphertext with the same original password, and click Decrypt.</p>
+                            <p>(NOTES: This uses Corrected Block TEA (often referred to as <a href="https://en.wikipedia.org/wiki/XXTEA">XXTEA</a>), a simple to code cipher which is unencumbered by patents and can run on low power devices like Raspi. This entire website can be downloaded and run locally.)
+                            <p><a href="https://github.com/tomosaigon/web-encrypt-text/tree/master/xxtea">View source</a></p>
+                        </div>
+                      </div>
+                      <h3 class="party-heading mb-4">Welcome to the party!</h3>
+                      <form>
+                        <div class="form-label-group">
+                            <label for="key">Password</label>
+                            <input type="password" class="form-control" id="key">
+                        </div><div class="form-label-group">
+                            <textarea rows="10" class="form-control" id="plaintext" placeholder="Text to encrypt goes here"></textarea>
+                        </div><div class="form-label-group">
+                            <button id="btnencrypt" onClick="encrypt()" class="btn btn-lg btn-primary btn-block text-uppercase font-weight-bold mb-2" type="submit">Encrypt (above)</button>
+                        </div><div class="form-label-group">
+                            <button id="btndecrypt" onClick="decrypt()" class="btn btn-lg btn-secondary btn-block text-uppercase font-weight-bold mb-2" type="submit">Decrypt (below)</button>
+                        </div><div class="form-label-group">
+                            <textarea class="form-control" id="ciphertext" placeholder="Encrypted text here"></textarea>
+                        </div>
+                        <div class="text-center">
+                          <a class="small" href="#">Forgot something?</a></div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </body>
-</html>
+</html
